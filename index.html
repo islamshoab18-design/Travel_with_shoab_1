@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Travel Hub - Hotel Booking System</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🇧🇩 Bangladesh Travel Hub</div>
+            <div class="nav-links">
+                <a href="#" onclick="showHome()">Home</a>
+                <a href="#" onclick="showDestinations()">Destinations</a>
+                <a href="#" onclick="showDashboard()">My Bookings</a>
+                <div class="user-info hidden" id="userInfo">
+                    <span id="userName"></span>
+                    <button onclick="logout()">Logout</button>
+                </div>
+                <div class="auth-buttons" id="authButtons">
+                    <button class="btn-secondary" onclick="showLogin()">Login</button>
+                    <button onclick="showSignup()">Sign Up</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="homeSection">
+            <div class="hero">
+                <div class="container">
+                    <h1>Discover Beautiful Bangladesh</h1>
+                    <p>From Cox's Bazar beaches to Sundarbans mangroves - explore the best of Bangladesh</p>
+                </div>
+            </div>
+
+            <div class="container">
+                <form class="search-form" onsubmit="searchHotels(event)">
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <select id="destination" required>
+                            <option value="">Select Destination</option>
+                            <option value="Cox's Bazar">Cox's Bazar</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Chittagong">Chittagong</option>
+                            <option value="Sylhet">Sylhet</option>
+                            <option value="Rangamati">Rangamati</option>
+                            <option value="Bandarban">Bandarban</option>
+                            <option value="Khagrachhari">Khagrachhari</option>
+                            <option value="Sundarbans">Sundarbans</option>
+                            <option value="Kuakata">Kuakata</option>
+                            <option value="Saint Martin">Saint Martin Island</option>
+                            <option value="Srimangal">Srimangal</option>
+                            <option value="Rajshahi">Rajshahi</option>
+                            <option value="Khulna">Khulna</option>
+                            <option value="Bogra">Bogra</option>
+                            <option value="Paharpur">Paharpur</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkin">Check-in</label>
+                        <input type="date" id="checkin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout">Check-out</label>
+                        <input type="date" id="checkout" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Guests</label>
+                        <select id="guests" required>
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5+ Guests</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="search-btn">Search Hotels</button>
+                </form>
+
+                <section class="hotels-section">
+                    <h2 class="section-title">Featured Hotels & Resorts</h2>
+                    <div class="hotels-grid" id="hotelsGrid">
+                        <!-- Hotels will be populated by JavaScript -->
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- Destinations Section -->
+        <section id="destinationsSection" class="destinations-section hidden">
+            <div class="container">
+                <h2 class="section-title">Popular Destinations in Bangladesh</h2>
+                <div class="destinations-grid" id="destinationsGrid">
+                    <!-- Destinations will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboardSection" class="dashboard container">
+            <h2>My Bookings</h2>
+            <div id="bookingsList">
+                <!-- Bookings will be populated by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form onsubmit="login(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupModal')">&times;</span>
+            <h2>Create Your Account</h2>
+            <form onsubmit="signup(event)">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bookingModal')">&times;</span>
+            <h2>Book Your Stay</h2>
+            <div id="bookingDetails"></div>
+            <form onsubmit="confirmBooking(event)">
+                <div class="form-group">
+                    <label for="bookingCheckin">Check-in Date</label>
+                    <input type="date" id="bookingCheckin" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookingCheckout">Check-out Date</label>
+                    <input type="date" id="bookingCheckout" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookingGuests">Number of Guests</label>
+                    <select id="bookingGuests" required>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5+ Guests</option>
+                    </select>
+                </div>
+                <button type="submit">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase Scripts -->
+
+</body>
+</html>
