@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #006A4E 0%, #F42A41 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header with Bangladesh colors */
+header {
+    background: rgba(0, 106, 78, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid #F42A41;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Destinations Section */
+.destinations-section {
+    background: white;
+    padding: 3rem 0;
+    margin-top: 2rem;
+}
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.destination-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    border: 2px solid #006A4E;
+}
+
+.destination-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,106,78,0.2);
+}
+
+.dest-image {
+    height: 150px;
+    background: linear-gradient(45deg, #006A4E, #F42A41);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+}
+
+.dest-info {
+    padding: 1.5rem;
+}
+
+.dest-info h3 {
+    color: #006A4E;
+    margin-bottom: 0.5rem;
+}
+
+.attractions {
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.attraction-tag {
+    background: #E8F5E8;
+    color: #006A4E;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+/* Hotel rating */
+.hotel-rating {
+    color: #FF6B35;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Bangladesh currency styling */
+.hotel-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #006A4E;
+    margin-bottom: 1rem;
+}
+
+/* Hidden class */
+.hidden {
+    display: none !important;
+}
