@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bangladesh Travel Hub - Hotel Booking System</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
     <header>
@@ -42,21 +42,21 @@
                         <label for="destination">Destination</label>
                         <select id="destination" required>
                             <option value="">Select Destination</option>
-                            <option value="Cox's Bazar">Cox's Bazar</option>
-                            <option value="Dhaka">Dhaka</option>
-                            <option value="Chittagong">Chittagong</option>
-                            <option value="Sylhet">Sylhet</option>
-                            <option value="Rangamati">Rangamati</option>
-                            <option value="Bandarban">Bandarban</option>
-                            <option value="Khagrachhari">Khagrachhari</option>
-                            <option value="Sundarbans">Sundarbans</option>
-                            <option value="Kuakata">Kuakata</option>
-                            <option value="Saint Martin">Saint Martin Island</option>
-                            <option value="Srimangal">Srimangal</option>
-                            <option value="Rajshahi">Rajshahi</option>
-                            <option value="Khulna">Khulna</option>
-                            <option value="Bogra">Bogra</option>
-                            <option value="Paharpur">Paharpur</option>
+                                <option value="Cox's Bazar">Cox's Bazar</option>
+                                <option value="Dhaka">Dhaka</option>
+                                <option value="Chittagong">Chittagong</option>
+                                <option value="Sylhet">Sylhet</option>
+                                <option value="Rangamati">Rangamati</option>
+                                <option value="Bandarban">Bandarban</option>
+                                <option value="Khagrachhari">Khagrachhari</option>
+                                <option value="Sundarbans">Sundarbans</option>
+                                <option value="Kuakata">Kuakata</option>
+                                <option value="Saint Martin">Saint Martin Island</option>
+                                <option value="Srimangal">Srimangal</option>
+                                <option value="Rajshahi">Rajshahi</option>
+                                <option value="Khulna">Khulna</option>
+                                <option value="Bogra">Bogra</option>
+                                <option value="Paharpur">Paharpur</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -83,7 +83,81 @@
                 <section class="hotels-section">
                     <h2 class="section-title">Featured Hotels & Resorts</h2>
                     <div class="hotels-grid" id="hotelsGrid">
-                        <!-- Hotels will be populated by JavaScript -->
+                        <div class="hotel-card">
+                            <h3>Hotel Cox's Bazar</h3>
+                            <p>Enjoy the sea view and luxury stay at Cox's Bazar.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
+                        <div class="hotel-card">
+                            <h3>Dhaka Grand Hotel</h3>
+                            <p>Experience comfort in the heart of Dhaka city.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
+                        <div class="hotel-card">
+                            <h3>Chittagong Seaside Resort</h3>
+                            <p>Relax at the beautiful Chittagong coastline.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
+                        <div class="hotel-card">
+                            <h3>Sylhet Tea Garden Inn</h3>
+                            <p>Stay among the lush tea gardens of Sylhet.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
+                        <div class="hotel-card">
+                            <h3>Rangamati Lake View</h3>
+                            <p>Enjoy the serene views of Rangamati Lake.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
+                        <div class="hotel-card">
+                            <h3>Bandarban Hill Resort</h3>
+                            <p>Adventure and peace in the hills of Bandarban.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
+                        <div class="hotel-card">
+                            <h3>Khagrachhari Retreat</h3>
+                            <p>Discover the beauty of Khagrachhari's nature.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
+                        <div class="hotel-card">
+                            <h3>Sundarbans Eco Lodge</h3>
+                            <p>Stay close to the world's largest mangrove forest.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
+                        <div class="hotel-card">
+                            <h3>Kuakata Beach Resort</h3>
+                            <p>See both sunrise and sunset at Kuakata beach.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
+                        <div class="hotel-card">
+                            <h3>Saint Martin Island Resort</h3>
+                            <p>Enjoy the coral island and blue waters.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
+                        <div class="hotel-card">
+                            <h3>Srimangal Tea Resort</h3>
+                            <p>Relax in the tea capital of Bangladesh.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
+                        <div class="hotel-card">
+                            <h3>Rajshahi Riverside Hotel</h3>
+                            <p>Stay by the Padma river in Rajshahi.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
+                        <div class="hotel-card">
+                            <h3>Khulna City Hotel</h3>
+                            <p>Comfort and convenience in Khulna city.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
+                        <div class="hotel-card">
+                            <h3>Bogra Heritage Inn</h3>
+                            <p>Explore the history and culture of Bogra.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
+                        <div class="hotel-card">
+                            <h3>Paharpur Archaeology Resort</h3>
+                            <p>Stay near the ancient ruins of Paharpur.</p>
+                            <button class="book-now-btn" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -188,7 +262,18 @@
     <!-- Project Scripts -->
     <script src="js/firebase-config.js"></script>
     <script src="js/auth.js"></script>
-    <script src="js/app.js"></script>
+
+    <script>
+    // Basic close modal functionality for Book Now
+    document.addEventListener('DOMContentLoaded', function() {
+        var modals = document.querySelectorAll('.modal');
+        modals.forEach(function(modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) modal.style.display = 'none';
+            });
+        });
+    });
+    </script>
 
 
 </body>

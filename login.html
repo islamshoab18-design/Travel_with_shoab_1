@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Bangladesh Travel Hub</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <div class="container" style="max-width:400px;margin-top:4rem;">
+        <h2 style="text-align:center;color:#006A4E;">Login to Your Account</h2>
+        <form onsubmit="login(event)" class="search-form" style="box-shadow:0 2px 16px rgba(0,0,0,0.08);">
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" required>
+            </div>
+            <button type="submit" class="search-btn">Login</button>
+        </form>
+        <div style="text-align:center;margin-top:1rem;">
+            <a href="signup.html">Don't have an account? Sign Up</a><br>
+            <a href="index.html">&larr; Back to Home</a>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
