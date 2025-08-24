@@ -1,45 +1,41 @@
-// Basic Firebase Auth for Login and Signup
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 
-const auth = getAuth();
+// Initialize Firebase Auth
+const auth = firebase.auth();
 
-// Login
-window.login = function(event) {
-    event.preventDefault();
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            alert('Login successful!');
-            document.getElementById('loginModal').style.display = 'none';
-            // Optionally update UI for logged-in user
-        })
-        .catch((error) => {
-            alert('Login failed: ' + error.message);
-        });
-}
-
-// Signup
+// Signup function
 window.signup = function(event) {
-    event.preventDefault();
-    const name = document.getElementById('signupName').value;
-    const email = document.getElementById('signupEmail').value;
-    const password = document.getElementById('signupPassword').value;
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            alert('Signup successful!');
-            document.getElementById('signupModal').style.display = 'none';
-            // Optionally update UI for logged-in user
-        })
-        .catch((error) => {
-            alert('Signup failed: ' + error.message);
-        });
+	event.preventDefault();
+	const email = document.getElementById('signupEmail').value;
+	const password = document.getElementById('signupPassword').value;
+	auth.createUserWithEmailAndPassword(email, password)
+		.then((userCredential) => {
+			alert('Signup successful!');
+			window.location.href = 'destinations.html';
+		})
+		.catch((error) => {
+			alert('Signup failed: ' + error.message);
+		});
 }
 
-// Logout
-window.logout = function() {
-    signOut(auth).then(() => {
-        alert('Logged out!');
-        // Optionally update UI for logged-out user
-    });
+// Login function
+window.login = function(event) {
+	event.preventDefault();
+	const email = document.getElementById('loginEmail').value;
+	const password = document.getElementById('loginPassword').value;
+	auth.signInWithEmailAndPassword(email, password)
+		.then((userCredential) => {
+			alert('Login successful!');
+			window.location.href = 'destinations.html';
+		})
+		.catch((error) => {
+			alert('Login failed: ' + error.message);
+		});
 }
+
+// Logout function
+window.logout = function() {
+	auth.signOut().then(() => {
+		alert('Logged out!');
+	});
+}
+
